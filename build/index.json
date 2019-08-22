@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "id": "investments",
+      "label": "Investments",
+      "elements": [
+        {
+            "id": "account",
+            "label": "The Account",
+            "type": "DIMENSION",
+            "options":
+            {
+                "min": 1,
+                "max": 1
+            }
+        },
+        {
+            "id": "investment",
+            "label": "The Investment",
+            "type": "DIMENSION",
+            "options":
+            {
+                "min": 1,
+                "max": 1
+            }
+        },        
+        {
+          "id": "account_value",
+          "label": "Market Value",
+          "type": "METRIC",
+          "options": {
+            "min": 1,
+            "max": 1
+          }
+        },
+        {
+          "id": "percent_change",
+          "label": "Percent Change",
+          "type": "METRIC",
+          "options": {
+            "min": 1,
+            "max": 1
+          }
+        }        
+      ]
+    }
+  ],
+  "style": [ ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Tim's Treemap Visualization",
+  "organization": "The Booher Family",
+  "description": "A test of the treemap.",
+  "logoUrl": "https://raw.githubusercontent.com/googledatastudio/experimental-visualizations/master/viz/sankey/src/bar-chart.svg",
+  "organizationUrl": "https://url",
+  "supportUrl": "https://url",
+  "privacyPolicyUrl": "https://url",
+  "termsOfServiceUrl": "https://url",
+  "packageUrl": "https://url",
+  "devMode": true,
+  "components": [
+    {
+      "name": "TimTreemap",
+      "description": "Treemap visualization built with d3.js by Tim Booher",
+      "iconUrl": "https://raw.githubusercontent.com/googledatastudio/experimental-visualizations/viz/treemap/src/treemap.png",
+      "resource": {
+        "js": "gs://booher-treemap/index.js",
+        "config": "gs://booher-treemap/index.json",
+        "css": "gs://booher-treemap/index.css"
+      }
+    }
+  ]
+}
