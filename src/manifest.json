@@ -8,7 +8,7 @@
     "privacyPolicyUrl": "https://www.theboohers.org/",
     "termsOfServiceUrl": "https://www.theboohers.org/",
     "packageUrl": "https://www.theboohers.org/",
-//    "devMode": "true",
+    "devMode": "DEVMODE_BOOL",    
     "components": [
     {
         "name": "TimTreemap",
