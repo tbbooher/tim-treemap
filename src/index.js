@@ -2,9 +2,6 @@ const dscc = require("@google/dscc");
 const local = require("./localMessage.js");
 const d3 = require("d3");
 
-// change this to "true" for local development
-// change this to "false" before deploying
-// 
 export const LOCAL = false;
 
 function draw(message) {
@@ -66,8 +63,8 @@ function render(root, style) {
     var mg_h = Math.max(5, height * 0.006);
     var mg_w = Math.max(5, width * 0.006);
     // set the dimensions and margins of the graph
-    var margin = { top: 10, right: 10, bottom: 10, left: 10 },
-    width = width - margin.left - margin.right;
+    var margin = { top: mg_h, right: mg_w, bottom: mg_h, left: mg_w },
+        width = width - margin.left - margin.right;
     height = height - margin.top - margin.bottom;
 
     var div = d3
@@ -113,7 +110,7 @@ function render(root, style) {
             }
         });
 
-    // and to add the text labels
+    // and to add the symbol names
     svg
         .selectAll("text")
         .data(root.leaves())
@@ -140,7 +137,13 @@ function render(root, style) {
         .attr("x", function(d) { return d.x0 + 5 }) // +10 to adjust position (more right)
         .attr("y", function(d) { return d.y0 + 35 }) // +20 to adjust position (lower)
         .text(function(d) {
-            var val = Math.round(parseFloat(d.data.value.market_value) / 1000);
+            var cell_height = (d.y1 - d.y0);
+            if (cell_height > 40) {
+                var val = Math.round(parseFloat(d.data.value.market_value) / 1000).toString() +
+                    " (" + Math.round(parseFloat(d.data.value.percent_change*10000))/100 +")";
+            } else {
+                var val = ''
+            }
             return val;
         })
         .attr("font-size", "11px")
