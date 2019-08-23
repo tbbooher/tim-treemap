@@ -5,7 +5,7 @@ const d3 = require("d3");
 // change this to "true" for local development
 // change this to "false" before deploying
 // 
-export const LOCAL = false;
+export const LOCAL = true;
 
 function draw(message) {
     // let's get our data in a good format
@@ -61,10 +61,16 @@ function render(root, style) {
         .domain([min_value, max_value])
         .range(["red", "green"]);
 
+    var height = dscc.getHeight();
+    var width = dscc.getWidth();
+    var mg_h = Math.max(5, height * 0.006);
+    var mg_w = Math.max(5, width * 0.006);
+
     // set the dimensions and margins of the graph
-    var margin = { top: 10, right: 10, bottom: 10, left: 10 },
-        width = dscc.getWidth() - margin.left - margin.right,
-        height = 445 - margin.top - margin.bottom;
+    var margin = { top: mg_h, right: mg_w, bottom: mg_h, left: mg_w }
+
+    width = width - margin.left - margin.right;
+    height = height - margin.top - margin.bottom;
 
     var div = d3
         .select('body')
